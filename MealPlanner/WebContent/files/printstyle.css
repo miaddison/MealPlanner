@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* CSS Document */
+
+header, nav, aside.right, #sharelinks, input{
+	display: none;
+}
+
+@page{
+	size: 8.5in 11in;
+	margin: 0.5in;
+}
+
+/* print designed for ink-jet B&W printer */
+body, main, aside, footer, div {
+	color: black !important;
+	background-color: white !important;
+	background-image: none;
+	font-size: 12pt;
+	font-family: "times new roman", times, serif;
+	line-height: 120%;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+main ol li + li{
+	padding-top: 8pts;
+}
+
+/* set links to default colors */
+a {
+	text-decoration: underline !important;
+	color: blue !important; 
+}
+
+img{
+	display: none;
+}
+img.full{
+	display: none;
+}
