@@ -1,3 +1,9 @@
+/*
+ * This page validates that the user has the correct password and then sends the information to admin.jsp.
+ * This was a very basic start to be able to a login page. In the future I would like to add a user
+ * table and be able to validate the user login information through the database.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -34,8 +40,8 @@ public class loginservlet extends HttpServlet {
 	    String name = request.getParameter("name");
 	    String error = null;
 	         
-	    if(password.equals("Password")){  
-	    	request.setAttribute("name", name);
+	    if(password.equals("Password")){  // checks that correct password is entered
+	    	request.setAttribute("name", name); // sends user name to admin.jsp
 	    	
 	    	getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);
 	    }  

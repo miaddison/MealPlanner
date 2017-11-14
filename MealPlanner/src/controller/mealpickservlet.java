@@ -1,3 +1,8 @@
+/*
+ * receive mealnum from mealpick.jsp and sets the attribute "meal" 
+ */
+
+
 package controller;
 
 
@@ -32,18 +37,19 @@ public class mealpickservlet extends HttpServlet {
 		response.setContentType("text/html");
 		//PrintWriter out = response.getWriter();
 		
+		// create instance of MealDaoImpl
 		MealDaoImpl mealDao = new MealDaoImpl();
-		String numMeals = request.getParameter("mealnum");
+		String numMeals = request.getParameter("mealnum"); //retrieve mealnumb from request obj
 	
 		try{
-			int mealnum = Integer.parseInt(numMeals);
-			request.setAttribute("meals", mealDao.findSpecNumByRandm(mealnum));
-			getServletContext().getRequestDispatcher("/meallist.jsp").forward(request, response);
+			int mealnum = Integer.parseInt(numMeals); // unbox nummeals as integer
+			request.setAttribute("meals", mealDao.findSpecNumByRandm(mealnum)); //meals to MealDaoImpl to create random meals then to meallist.hsp
+			getServletContext().getRequestDispatcher("/meallist.jsp").forward(request, response); // send to meallist.jsp
 			
-		}catch (Exception e){
+		}catch (Exception e){ // validate user input
 			String error = "Please enter a whole number.";
-		    request.setAttribute("error", error);
-		    getServletContext().getRequestDispatcher("/mealpick.jsp").forward(request, response);
+		    request.setAttribute("error", error); // from mealpick.jsp
+		    getServletContext().getRequestDispatcher("/mealpick.jsp").forward(request, response); // send message back to user
 		}	
 	}
 	

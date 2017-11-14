@@ -1,3 +1,10 @@
+/*
+ * This page receives the meal data from mealconfirmation.jsp uses MealDaoImpl to enter it into the 
+ * database and then sends user to successfulentry.jsp to display that the submission was successful.
+ * I need to look at error/exception handling here to return a message to user of the MealDaoImpl exception
+ * then send to successfulentry.jsp or a error page etc. 
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -39,8 +46,8 @@ public class confirmservlet extends HttpServlet {
 		
 		//System.out.println("confirm: " + mealName);
 		
-		mealDao.enterMealInDatabase(mealName, ingredients, directions);
-		getServletContext().getRequestDispatcher("/successfulentry.jsp").forward(request, response);
+		mealDao.enterMealInDatabase(mealName, ingredients, directions); //enter meal in the database
+		getServletContext().getRequestDispatcher("/successfulentry.jsp").forward(request, response); // send to successfulentry.jsp
 	}
 
 	/**

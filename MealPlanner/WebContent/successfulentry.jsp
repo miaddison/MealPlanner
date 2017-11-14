@@ -1,3 +1,8 @@
+<!--
+	This page is displayed when the meal the user entered is successfully entered into
+	the database in confirmservlet.java. Need to update confirmservlet.java to send user
+	an error message and handle that here or create an error message.
+-->
 <!DOCTYPE html>
 <html>
 <head>

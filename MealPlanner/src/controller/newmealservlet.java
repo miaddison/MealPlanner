@@ -1,3 +1,9 @@
+/*
+ * This page receives recipe information from admin.jsp on recipe name, number of ingredients, and number of 
+ * steps. If the information is valid it is sent to mealentry.jsp or the user is redirected back to admin.jsp
+ * to try again.
+ */
+
 package controller;
 
 import java.io.IOException;
@@ -40,7 +46,7 @@ public class newmealservlet extends HttpServlet {
 			request.setAttribute("numDirections", numDirections);
 			getServletContext().getRequestDispatcher("/mealentry.jsp").forward(request, response);
 			
-		}catch (Exception e){
+		}catch (Exception e){ 
 			String error = "Please enter a whole number for both number of ingredients and number of directions.";
 		    request.setAttribute("error", error);
 		    getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);

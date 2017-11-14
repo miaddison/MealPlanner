@@ -4,11 +4,13 @@ package model;
 import java.util.ArrayList;
 
 public class Meal {
+	// variables
 	private int id;
 	private String mealname;
-	private ArrayList<String> ingredients;
-	private ArrayList<String> directions;
+	private ArrayList<String> ingredients;	// list of ingredients
+	private ArrayList<String> directions;	// steps of directions
 	
+	// Constructors
 	public Meal() {
 		
 	}
@@ -17,7 +19,7 @@ public class Meal {
 		this.id = id;
 		this.mealname = mealname;
 	}
-
+	
 	public Meal(int id, String mealname, ArrayList<String> directions) {
 		this.id = id;
 		this.mealname = mealname;
@@ -35,7 +37,7 @@ public class Meal {
 		this.ingredients = ingredients;
 		this.directions = directions;
 	}
-
+	// getters and setters
 	public int getId() {
 		return id;
 	}

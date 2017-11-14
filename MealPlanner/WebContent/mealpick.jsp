@@ -1,3 +1,5 @@
+<!--Page to enter the number of meals you would like to have selected. Sends mealnum to mealpickservlet.java-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,13 +32,13 @@
 <form action="mealpickservlet" method="post">
 	<h3>Please enter the number of meals you would like to plan below.</h3>
 	
-	<%String error = (String)request.getAttribute("error");
-		if(error != null && !error.isEmpty()){%>
+	<%String error = (String)request.getAttribute("error"); // 
+		if(error != null && !error.isEmpty()){%> 
 			<h6><%=error %></h6>
 		<%}%>
 	<br>
 	<div id="input">
-		<label for = "mealnum">Number of Meals:</label>
+		<label for = "mealnum">Number of Meals:</label> <!-- sends mealnum to mealpickservlet -->
 		<input type = "text" name = "mealnum" size = "3" required/>
 	</div>
 	<br><br>

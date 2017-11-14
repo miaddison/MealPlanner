@@ -1,3 +1,7 @@
+<!-- 
+	Receives request object from mealservlet.java and displays all the meals the user selected  
+	so that they can print them off if desired. 
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,7 +42,7 @@
 		<h1>Welcome to the meal planner</h1>
 	</a>
 </header>
-<% 
+<% //get arraylist of selected meals from the request object
 ArrayList<Meal> selectedMeals = (ArrayList<Meal>)request.getAttribute("selectedMeals"); 
 %>
 <nav>
@@ -50,7 +54,7 @@ ArrayList<Meal> selectedMeals = (ArrayList<Meal>)request.getAttribute("selectedM
 </nav>
 <main>
 <br/>
-	<h3>Here are the directions you requested</h3>
+	<h3>Here are the directions you requested</h3> <!-- display all meal names in nav bar anchor using id -->
 		<nav class = "sub">
 		<%for(int i = 0; i < selectedMeals.size(); i++){
 					Meal meal = new Meal();
@@ -63,9 +67,10 @@ ArrayList<Meal> selectedMeals = (ArrayList<Meal>)request.getAttribute("selectedM
 					Meal meal = new Meal();
 					meal = selectedMeals.get(i);
 					%>
-					<div id = "<%=meal.getId() %>">
+					<div id = "<%=meal.getId() %>"> <!-- creates anchor for nav bar -->
 					<h4><%=meal.getMealname() %></h4>
 					
+					<!-- button for printing each recipe, also has css formatting for printing -->
 					<input style = "float: right; margin-right:15%" type="button" value="Print Recipe" onclick="javascript:printDiv('<%=meal.getId() %>')" />
 					
 					<!--begin bullet list of ingredients-->
